@@ -1,0 +1,4 @@
+interface:
+  display_name: "Career Research"
+  short_description: "Research real careers and AI labor-market impact"
+  default_prompt: "Use $career-research to review my project state and continue the next career research task."
