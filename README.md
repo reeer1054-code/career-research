@@ -1,4 +1,4 @@
-![Codex skill](https://img.shields.io/badge/Codex-Skill-2f81f7?style=flat-square)
+![Skill](https://img.shields.io/badge/Skill-2f81f7?style=flat-square)
 
 # career-research
 
