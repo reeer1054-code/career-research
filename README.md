@@ -4,9 +4,9 @@
 
 <span>English</span> | <a href="./README.zh-CN.md">中文</a>
 
-`career-research` is a Codex skill for evidence-based career research. It is
-written for students and recent graduates in mainland China and can also cover
-overseas markets when a project needs them.
+`career-research` is a skill for evidence-based career research. It is written
+for students and recent graduates in mainland China and can also cover overseas
+markets when a project needs them.
 
 The skill helps you move from a broad list of possible occupations to a smaller
 set worth investigating, then to detailed reports and a practical decision. It
