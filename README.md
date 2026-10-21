@@ -2,91 +2,75 @@
 
 # career-research
 
-<span>English</span> | <a href="./README.zh-CN.md">中文</a>
+<a href="./README.en.md">English</a> | <span>中文</span>
 
-`career-research` is a skill for evidence-based career research. It is written
-for students and recent graduates in mainland China and can also cover overseas
-markets when a project needs them.
+`career-research` 是一个帮助大学生和应届生了解职业、寻找就业方向的 Skill，主要面向中国大陆的就业市场，也可以用来研究海外的职业机会。
 
-The skill helps you move from a broad list of possible occupations to a smaller
-set worth investigating, then to detailed reports and a practical decision. It
-does not assume that one occupation fits everyone, and it does not fill gaps
-with invented salary, hiring, or AI-replacement figures.
+它会先通过问卷了解你的兴趣、偏好和实际情况，帮你筛选出值得考虑的职业，再逐步了解这些工作的日常内容、薪资、技能要求和就业前景，最后结合你的个人情况，给出一些实际可行的建议。
 
-## How it works
+它不会因为你学了某个专业，就直接认定你适合做什么工作。对于查不到或缺乏可靠依据的数据，也不会随便编一个数字来凑报告。
 
-The process runs through five stages:
+## 工作方式
 
-1. Build a profile and record hard constraints.
-2. Collect a lightweight pool of real occupations.
-3. Filter the pool against the user's stated conditions.
-4. Quick-scan the remaining occupations.
-5. Deep-research the strongest options and compare them before making a
-   decision.
+研究按五个阶段推进：
 
-The default budget is 100 candidates, 20 to 30 after the hard filter, and 10 to
-15 for deep research. These numbers are a planning guide, not a rule that should
-override the user's needs.
+1. 建立个人画像，写清现实中的硬性条件。
+2. 先收集一批现实存在的职业。
+3. 按用户明确提出的条件做筛选。
+4. 对保留的职业做一页式快扫。
+5. 深研最有希望的方向，比较后形成决策。
 
-Evidence is graded A to D. Important claims must show their source, date, region,
-sample size, and limits. If live search is unavailable, the skill records the
-gap instead of pretending the research is complete.
+默认预算是 100 个候选、硬筛后保留 20 至 30 个、其中 10 至 15 个进入深研。数字用于控制工作量，不会压过用户的实际需求。
 
-## What is included
+所有来源按 A 至 D 分级。重要结论要记录来源、日期、地区、样本量和局限。无法联网核实时，skill 会明确写下证据缺口，不会假装已经查过。
+
+## 包含内容
 
 ```text
 career-research/
-├── SKILL.md                     Main instructions and workflow
-├── agents/openai.yaml           Codex display metadata
-├── references/                  Detailed research rules and templates
-├── scripts/quick_validate.py    Skill and project validator
-├── tests/                       Validator tests
-└── assets/project-template/     Empty career-project skeleton
+├── SKILL.md                     核心指令与研究流程
+├── agents/openai.yaml           Codex 展示信息
+├── references/                  研究规范与模板
+├── scripts/quick_validate.py    skill 与项目校验脚本
+├── tests/                       校验脚本测试
+└── assets/project-template/     空白职业研究项目
 ```
 
-The skill keeps its method separate from the user's project. Personal profiles
-and career records stay in the project directory. The shared source catalog only
-contains search entry points and query templates.
+skill 本身只保存研究方法。个人画像、职业记录和进度放在用户项目里。共享来源层只保存检索入口与查询模板，不放个人资料。
 
-## Install in Codex
+## 安装到 Codex
 
-Link this repository into the Codex skills directory:
+把仓库链接到 Codex 的 skills 目录：
 
 ```powershell
 New-Item -ItemType Junction `
   -Path "$HOME\.codex\skills\career-research" `
-  -Target "<path to this repository>"
+  -Target "<仓库所在路径>"
 ```
 
-Codex can then discover the skill automatically. You can also invoke it
-explicitly with `$career-research`.
+安装后 Codex 会自动发现这个 skill。也可以输入 `$career-research` 强制调用。
 
-## Start a project
+## 开始一个项目
 
-Copy `assets/project-template/` to a new project folder. Fill in
-`PROJECT_STATE.md` with the start date and current goal, then record only
-information the user has actually provided in `MY_CAREER_PROFILE.md`.
+先把 `assets/project-template/` 复制成项目目录。然后在 `PROJECT_STATE.md` 里填写开始日期和当前目标。`MY_CAREER_PROFILE.md` 只记录用户亲口说过的信息，不要把推测写成事实。
 
-When continuing an existing project, read `PROJECT_STATE.md` first. Load only the
-references needed for the next task.
+继续已有项目时，先读 `PROJECT_STATE.md`。只加载下一步真正需要的参考资料。
 
-## Validate
+## 校验
 
-Run the validator from the repository root:
+在仓库根目录运行：
 
 ```bash
 python scripts/quick_validate.py --skill .
 python -m unittest discover -s tests -v
 ```
 
-The scripts use only the Python standard library. If `python` is unavailable,
-use a working interpreter, for example:
+这些脚本只使用 Python 标准库。如果 `python` 不可用，可以换一个可用的解释器，例如：
 
 ```bash
 uv run --python 3.13 python scripts/quick_validate.py --skill .
 ```
 
-## Scope
+## 不适用范围
 
-This skill is not a recruiting workflow, an admissions or study-abroad service,
-or a general resume-rewriting tool.
+这个 skill 不处理企业招聘流程、留学申请或普通的简历润色。
